@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora - Mecânica Customs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="total-box">
+    <strong><span id="total">0</span></strong>
+    <button onclick="resetCalculator()">Resetar</button>
+    <button class="theme-toggle" onclick="setTheme('light')">Claro</button>
+    <button class="theme-toggle" onclick="setTheme('dark')">Escuro</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PERFORMANCE -->
+  <div class="box">
+    <h2>Performance</h2>
+
+    <label>Motor
+      <select id="motor">
+        <option value="0">Nenhum</option>
+        <option value="9000">Nível 1 - R$ 9.000</option>
+        <option value="11700">Nível 2 - R$ 11.760</option>
+        <option value="13800">Nível 3 - R$ 13.800</option>
+        <option value="17400">Nível 4 - R$ 17.400</option>
+        <option value="22200">Nível 5 - R$ 22.200</option>
+      </select>
+    </label>
+
+    <label>Freio
+      <select id="freio">
+        <option value="0">Nenhum</option>
+        <option value="9600">Nível 1 - R$ 9.600</option>
+        <option value="11400">Nível 2 - R$ 11.400</option>
+        <option value="13200">Nível 3 - R$ 13.200</option>
+        <option value="17400">Nível 4 - R$ 17.400</option>
+      </select>
+    </label>
+
+    <label>Transmissão
+      <select id="transmissao">
+        <option value="0">Nenhum</option>
+        <option value="11400">Nível 1 - R$ 11.400</option>
+        <option value="13200">Nível 2 - R$ 13.200</option>
+        <option value="17400">Nível 3 - R$ 17.400</option>
+        <option value="22200">Nível 4 - R$ 22.200</option>
+      </select>
+    </label>
+
+    <label>Suspensão
+      <select id="suspensao">
+        <option value="0">Nenhum</option>
+        <option value="9000">Nível 1 - R$ 9.000</option>
+        <option value="11400">Nível 2 - R$ 11.400</option>
+        <option value="13800">Nível 3 - R$ 13.800</option>
+        <option value="17400">Nível 4 - R$ 17.400</option>
+        <option value="22200">Nível 5 - R$ 22.200</option>
+      </select>
+    </label>
+
+    <label>Blindagem
+      <select id="blindagem">
+        <option value="0">Nenhum</option>
+        <option value="13200">Nível 1 - R$ 13.200</option>
+        <option value="15000">Nível 2 - R$ 15.000</option>
+        <option value="19800">Nível 3 - R$ 19.800</option>
+        <option value="25800">Nível 4 - R$ 25.800</option>
+        <option value="32400">Nível 5 - R$ 32.400</option>
+      </select>
+    </label>
+
+    <label class="checkbox-label">Turbo - R$ 7.800<input type="checkbox" data-price="7800"></label>
+    
+    <label class="checkbox-label">Full Tuning<input type="checkbox" id="fullTuning"></label>
+    <label class="checkbox-label">Full Tuning + Blindagem<input type="checkbox" id="fullTuningBlind"></label>
+  </div>
+
+  <!-- ESTÉTICA -->
+  <div class="box">
+    <h2>Estética</h2>
+
+    
+    <label class="checkbox-label">Rodas - R$ 4.200<input type="checkbox" data-price="4200"></label>
+    <label class="checkbox-label">Cor das Rodas - R$ 1.400<input type="checkbox" data-price="1400"></label>
+    <label class="checkbox-label">Cor da Fumaça - R$ 2.160<input type="checkbox" data-price="2160"></label>
+    <label class="checkbox-label">Insulfilm - R$ 1.440<input type="checkbox" data-price="1440"></label>
+    <label class="checkbox-label">Neon - R$ 1.440<input type="checkbox" data-price="1440"></label>
+    <label class="checkbox-label">Cor do Neon - R$ 1.440<input type="checkbox" data-price="1440"></label>
+    <label class="checkbox-label">Xenon - R$ 1.440<input type="checkbox" data-price="1440"></label>
+    <label class="checkbox-label">Cor do Xenon - R$ 1.440<input type="checkbox" data-price="1440"></label>
+    <label class="checkbox-label">Placa - R$ 3.000<input type="checkbox" data-price="3000"></label>
+    <label class="checkbox-label">Buzina - R$ 1.800<input type="checkbox" data-price="1800"></label>
+
+    <div class="counter">
+      Pintura - R$ 1.920 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="1920">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <div class="counter">
+      Extras - R$ 1.800 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="1800">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <div class="counter">
+      Equipamentos - R$ 1.800 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="1800">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <div class="box">
+    <h2>Serviços</h2>
+
+    <label class="checkbox-label">Atendimento Externo Sul - R$ 700<input type="checkbox" data-price="700"></label>
+    <label class="checkbox-label">Atendimento Externo Norte - R$ 1.200<input type="checkbox" data-price="1200"></label>
+    
+    <div class="counter">
+      Reparo / Conserto - R$ 500 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="500">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <div class="counter">
+      Troca de Pneu - R$ 250 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="250">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <div class="counter">
+      Rastreador - R$ 15.600 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="15600">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <div class="counter">
+      Kit Drift / Coilover - R$ 15.600 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="15600">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+<!-- ESPAÇO EXTRA ANTES DE VENDAS -->
+    <div class="counter nitro-spacing">
+      Nitro - R$ 9.600 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="9600">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <h2 class="vendas-title">Vendas</h2>
+
+    <div class="counter">
+      Kit de Reparo - R$ 500 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="500">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <div class="counter">
+      Pneu - R$ 250 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="250">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+
+    <div class="counter">
+      Chave de Roda - R$ 960 cada
+      <div>
+        <button onclick="changeQty(this,-1)">-</button>
+        <span data-qty data-price="960">0</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
