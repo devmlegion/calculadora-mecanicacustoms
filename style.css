@@ -502,7 +502,7 @@ h2.vendas-header {
   text-shadow: 0 0 6px rgba(255,159,67,0.6);
 }
 
-/* Tema claro */
+/* ================= TEMA CLARO - Bot Bar ================= */
 body.theme-light .bot-bar {
   background: linear-gradient(180deg, #f0e7d9, #fdf9f3);
   box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
@@ -517,6 +517,25 @@ body.theme-light .marquee span {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
+
+/* ================= TEMA NEON - Bot Bar ================= */
+body.theme-neon .bot-bar {
+  background: linear-gradient(180deg, #2c003e, #6200ea);
+  box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
+  
+}
+
+body.theme-neon .marquee span {
+  color: #ffffff; /* Ciano neon */
+  text-shadow: 0 0 8px rgba(198, 25, 123, 0.8); /* Brilho no texto */
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
 /* Evita que a botbar cubra o conteúdo 
 main.container {
   padding-bottom: 70px;
@@ -568,6 +587,17 @@ body.theme-light .box::before {
     color 0.2s ease,
     text-shadow 0.2s ease;
 }
+/* Esconder somente o checkbox, mantendo a label visível */
+#vendasSwitch {
+  opacity: 0; /* Tornar o checkbox invisível */
+  position: absolute; /* Remover o checkbox do layout */
+}
+
+/* Se você quiser, pode até esconder o próprio <label> */
+.vendas-checkbox-label {
+  display: inline-block;
+  cursor: pointer; /* Para garantir que a label seja clicável */
+}
 
 /* Hover */
 .vendas-checkbox-label:hover i {
@@ -589,6 +619,87 @@ body.theme-light .vendas-checkbox-label input:checked + i {
   color: #1fa37a;
   text-shadow: none;
 }
+
+/* ============================================= */
+/*                   TEMA NEON                   */
+/* ============================================= */
+body.theme-neon {
+  background: #42041e; /* Fundo escuro roxo */
+  color: #ffffff; /* Texto claro */
+  font-family: 'Orbitron', sans-serif; /* Fonte futurista */
+}
+
+body.theme-neon .top-bar {
+  background: linear-gradient(180deg, #2c003e, #6200ea);
+  box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
+}
+
+body.theme-neon .total-box {
+  color: #00ff00; /* Verde neon */
+}
+
+body.theme-neon .reset-btn,
+body.theme-neon .theme-toggle-btn {
+  color: #ffeb3b; /* Amarelo neon */
+  border-color: #ffeb3b;
+}
+
+body.theme-neon .box {
+  background: #2e0620;
+  box-shadow: 0 6px 18px rgba(0, 255, 255, 0.15);
+  border-radius: 12px;
+}
+
+body.theme-neon .price {
+  color: #00ff3c; /* Verde neon */
+}
+
+body.theme-neon .counter-controls button {
+  background: #d000ff;
+  color: #fff;
+}
+
+body.theme-neon .counter-controls button:hover {
+  background: #ca00e5;
+}
+
+/* =================== TEMA NEON - Animações de Carnaval =================== */
+
+/* Confetes */
+@keyframes confetes {
+  0% { top: -10%; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.confetes {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  animation: confetes 3s linear infinite;
+  pointer-events: none;
+  animation-delay: calc(0.5s * var(--i));
+}
+
+/* Animação para os pedaços coloridos */
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.pedaço-colorido {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffeb3b; /* Cor padrão */
+  animation: explode 0.5s forwards;
+  pointer-events: none; /* Para que o clique não seja bloqueado */
+}
+
 
 /* =========================================================
    FIM DO ARQUIVO CSS
