@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora - Mecânica Customs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+<header class="top-bar">
+  <button class="theme-toggle-btn"></button>
+  <div class="top-bar-inner">
+    <div class="total-box">
+      <strong id="total">0</strong>
+    </div>
+  </div>
+  <button class="reset-btn" onclick="resetCalculator()">
+      <i class="fas fa-times-circle"></i>
+  </button>
+</header>
+
+<main class="container">
+
+<!-- ================= MELHORIAS ================= -->
+<section class="box">
+  <h2 class="servicos-header">Melhorias</h2>
+  <div class="field">
+    <label>Motor</label>
+    <select id="motor">
+      <option value="0">Nenhum</option>
+      <option value="9000">Nível 1 - $ 9.000</option>
+      <option value="11760">Nível 2 - $ 11.760</option>
+      <option value="13800">Nível 3 - $ 13.800</option>
+      <option value="17400">Nível 4 - $ 17.400</option>
+      <option value="22200">Nível 5 - $ 22.200</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Freio</label>
+    <select id="freio">
+      <option value="0">Nenhum</option>
+      <option value="9600">Nível 1 - $ 9.600</option>
+      <option value="11400">Nível 2 - $ 11.400</option>
+      <option value="13200">Nível 3 - $ 13.200</option>
+      <option value="17400">Nível 4 - $ 17.400</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Transmissão</label>
+    <select id="transmissao">
+      <option value="0">Nenhum</option>
+      <option value="11400">Nível 1 - $ 11.400</option>
+      <option value="13200">Nível 2 - $ 13.200</option>
+      <option value="17400">Nível 3 - $ 17.400</option>
+      <option value="22200">Nível 4 - $ 22.200</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Suspensão</label>
+    <select id="suspensao">
+      <option value="0">Nenhum</option>
+      <option value="9000">Nível 1 - $ 9.000</option>
+      <option value="11400">Nível 2 - $ 11.400</option>
+      <option value="13800">Nível 3 - $ 13.800</option>
+      <option value="17400">Nível 4 - $ 17.400</option>
+      <option value="22200">Nível 5 - $ 22.200</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Blindagem</label>
+    <select id="blindagem">
+      <option value="0">Nenhum</option>
+      <option value="13200">Nível 1 - $ 13.200</option>
+      <option value="15000">Nível 2 - $ 15.000</option>
+      <option value="19800">Nível 3 - $ 19.800</option>
+      <option value="25800">Nível 4 - $ 25.800</option>
+      <option value="32400">Nível 5 - $ 32.400</option>
+    </select>
+  </div>
+
+<h2 class="servicos-header">Melhorias FULL</h2>
+
+  <div class="checkbox-row">
+    <label>Turbo <span class="price">$ 7.800</span></label>
+    <input type="checkbox" data-price="7800">
+  </div>
+
+  <div class="checkbox-row combo">
+    <label>Full Tuning <span class="price">$ 84.000</span></label>
+    <input type="checkbox" id="fullTuning">
+  </div>
+
+  <div class="checkbox-row combo">
+    <label>Full Tuning+Blindagem <span class="price">$ 116.400</span></label>
+    <input type="checkbox" id="fullTuningBlind">
+  </div>
+
+  <div class="checkbox-row combo">
+    <label><span class="price">OBS: TURBO não é do FullTuning.</span></label>
+  </div>
+</section>
+
+<!-- ================= ESTÉTICA ================= -->
+<section class="box">
+  <h2 class="servicos-header">Estética</h2>
+
+  <div class="checkbox-row"><label>Rodas <span class="price">$ 4.200</span></label><input type="checkbox" data-price="4200"></div>
+  <div class="checkbox-row"><label>Cor das Rodas <span class="price">$ 1.400</span></label><input type="checkbox" data-price="1400"></div>
+  <div class="checkbox-row"><label>Cor da Fumaça <span class="price">$ 2.160</span></label><input type="checkbox" data-price="2160"></div>
+  <div class="checkbox-row"><label>Insulfilm <span class="price">$ 1.440</span></label><input type="checkbox" data-price="1440"></div>
+  <div class="checkbox-row"><label>Placa <span class="price">$ 3.000</span></label><input type="checkbox" data-price="3000"></div>
+  <div class="checkbox-row"><label>Buzina <span class="price">$ 1.800</span></label><input type="checkbox" data-price="1800"></div>
+  <div class="checkbox-row"><label>Neon <span class="price">$ 1.440</span></label><input type="checkbox" data-price="1440"></div>
+  <div class="checkbox-row"><label>Cor do Neon <span class="price">$ 1.440</span></label><input type="checkbox" data-price="1440"></div>
+  <div class="checkbox-row"><label>Xenon <span class="price">$ 1.440</span></label><input type="checkbox" data-price="1440"></div>
+  <div class="checkbox-row"><label>Cor do Xenon <span class="price">$ 1.440</span></label><input type="checkbox" data-price="1440"></div>
+
+  <div class="counter-row">
+    <div class="counter-label">Pintura <span class="price">$ 1.920</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="1920">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Extras <span class="price">$ 1.800</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="1800">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Não listados <span class="price">$ 1.800</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="1800">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVIÇOS ================= -->
+<section class="box">
+  <h2 class="servicos-header">Serviços</h2>
+
+  <div class="checkbox-row"><label>Atendimento no Sul <span class="price">$ 700</span></label><input type="checkbox" data-price="700"></div>
+  <div class="checkbox-row"><label>Atendimento no Norte <span class="price">$ 1.200</span></label><input type="checkbox" data-price="1200"></div>
+
+  <div class="counter-row">
+    <div class="counter-label">Reparo Carro <span class="price">$ 500</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="500">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Repor Pneu <span class="price">$ 250</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="250">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Rastreador <span class="price">$ 15.600</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="15600">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Kit Drift <span class="price">$ 15.600</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="15600">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Nitro <span class="price">$ 9.600</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="9600">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <h2 class="vendas-header">
+  Vendas
+  <label class="vendas-checkbox-label">
+    <input type="checkbox" id="vendasSwitch">
+    <i class="fas fa-handshake" title="Parceria"></i>
+  </label>
+</h2>
+
+  <div class="counter-row">
+    <div class="counter-label">Reparo<span class="price">$ 1200</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="1200">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Pneu<span class="price">$ 900</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="900">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Chave de Roda<span class="price">$ 960</span></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+      <span data-qty data-price="960">0</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="bot-bar">
+  <div class="bot-bar-inner">
+    <div class="marquee">
+      <span>
+        CALCULADORA MECÂNICA - DIVIRTA-SE COM O TEMA CARNAVAL!!
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

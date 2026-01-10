@@ -1,0 +1,706 @@
+/* =========================================================
+   CSS Base (Escuro = padrão)
+   ========================================================= */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000000;
+  color: #f2f2f2;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ================= TOP BAR ================= */
+.top-bar {
+  width: 100%;
+  background: linear-gradient(180deg, #1f1a12, #14100a);
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 0 12px rgba(255, 166, 0, 0.276);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.total-box {
+  grid-column: 2;
+  text-align: center;
+  color: #66ffcc; /* verde/cyan */
+  font-size: 18px;
+  text-shadow: 0 0 6px rgba(102,255,204,0.6);
+}
+
+.total-box strong {
+  display: block;
+  font-size: 38px;
+  margin-top: 2px;
+}
+
+.reset-btn {
+  grid-column: 3;
+  justify-self: end;
+  background: none;
+  border: none;
+  color: #ff9f43; /* laranja neon */
+  font-size: 2px;
+  cursor: pointer;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.reset-btn:hover {
+  color: #ffc37a;
+  text-shadow: 0 0 8px rgba(255,159,67,0.8);
+}
+
+/* Botão alternar tema */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid #ff9f43;
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: #ff9f43;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: #ff9f43;
+  color: #000000;
+}
+
+/* ================= GRID ================= */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+/* ================= BOX ================= */
+.box {
+  background: linear-gradient(180deg, #1f1a12, #14100a);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 0 14px rgba(255,159,67,0.18);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box h2 {
+  font-size: 22px;
+  color: #ff9f43; /* laranja */
+  text-align: center;
+  border-bottom: 1px solid #ffb86b;
+  padding-bottom: 6px;
+  text-shadow: 0 0 6px rgba(255, 158, 67, 0.393);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🔹 Espaçamento extra antes de títulos internos (ex: Vendas) */
+.box h2:not(:first-of-type) {
+  margin-top: 12px;
+}
+
+/* ================= SELECT FIELDS ================= */
+.field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.field label {
+  flex: 1;
+  text-align: left;
+  color: #e6e6e6;
+}
+
+select {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  background: #34281d;
+  color: #ffffff;
+}
+
+select:focus {
+  outline: 2px solid #ff9f43;
+}
+
+/* ================= CHECKBOX ================= */
+.checkbox-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-row label {
+  text-align: left;
+  cursor: pointer;
+  color: #e6e6e6;
+}
+
+/* 🔹 Espaçamento extra antes dos combos Full Tuning */
+.checkbox-row.combo {
+  margin-top: 8px;
+}
+
+/* Espaço entre Blindagem e os combos Full Tuning 
+#blindagem {
+  margin-bottom: 22px; 
+}*/
+
+/* Remove margem individual do Blindagem */
+#blindagem {
+  margin: 0; /* remove margens extras */
+}
+
+/* ================= COUNTER ================= */
+.counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter-label {
+  text-align: left;
+  color: #e6e6e6;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.counter-controls button {
+  background: #1f1a12;
+  border: none;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.counter-controls button:hover {
+  background: #ff9f43;
+  box-shadow: 0 0 8px rgba(255,159,67,0.6);
+}
+
+.counter-controls button:active {
+  transform: scale(0.95);
+}
+
+.counter-controls span {
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ================= PRICE ================= */
+.price {
+  color: #66ffcc; /* verde mantido */
+  font-weight: bold;
+  margin-left: 6px;
+  text-shadow: 0 0 6px rgba(102,255,204,0.6);
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .top-bar-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .total-box {
+    grid-column: auto;
+  }
+
+  .reset-btn {
+    grid-column: auto;
+    justify-self: center;
+  }
+}
+
+.reset-btn {
+  grid-column: 3;
+  justify-self: end;
+  background: none;
+  border: none;
+  color: #ff9f43;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .reset-btn {
+    justify-self: end;
+  }
+}
+
+/* =========================================================
+   TEMA CLARO SUAVE (BEGE + CINZA)
+   ========================================================= */
+body.theme-light {
+  background: #f5f0e6; /* bege claro */
+  color: #1a1a1a;
+}
+
+body.theme-light .top-bar {
+  background: linear-gradient(180deg, #fdf9f3, #f0e7d9);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+body.theme-light .total-box { /* cor do texto da autosoma */
+  color: #1fa37a;
+  text-shadow: 0 0 6px rgba(102,255,204,0.6);
+}
+
+body.theme-light .reset-btn,
+body.theme-light .theme-toggle-btn {
+  color: #c96c1a;
+  border-color: #c96c1a;
+}
+
+body.theme-light .reset-btn:hover,
+body.theme-light .theme-toggle-btn:hover {
+  background: #c96c1a;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+body.theme-light .box {
+  background: linear-gradient(180deg, #fdf9f3, #f5f0e6);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+body.theme-light .field label,
+body.theme-light .checkbox-row label,
+body.theme-light .counter-label {
+  color: #4a4a4a;
+}
+
+body.theme-light select {
+  background: #fdf9f3;
+  color: #1a1a1a;
+  border: 1px solid #e0d7c7;
+}
+
+body.theme-light select:focus {
+  outline: 6px solid #c96c1a;
+}
+
+body.theme-light .counter-controls button {
+  background: #f0e7d9;
+  color: #1a1a1a;
+}
+
+body.theme-light .counter-controls button:hover {
+  background: #c96c1a;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+body.theme-light .price { /* cor dos texto dos preços */
+  color: #1fa37a;
+  text-shadow: 0 0 6px rgba(102,255,204,0.6);
+}
+
+/* ===== Checkbox ao lado de VENDAS ===== */
+.vendas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vendas-checkbox-label {
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vendas-checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* ===== Alinhar Título Serviços à Direita ===== */
+section.box > h2.servicos-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* =========================================================
+   ACCORDION MOBILE (SEM ALTERAR CSS ORIGINAL)
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* Títulos viram clicáveis */
+  h2.servicos-header {
+    cursor: pointer;
+  }
+
+  /* Conteúdo colapsável */
+  .accordion-content {
+    overflow: hidden;
+    max-height: 2000px;
+    transition: max-height 0.35s ease;
+  }
+
+  .accordion-content.closed {
+    max-height: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .accordion-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Mais espaço entre seções de Estética */
+  .accordion-content .checkbox-row,
+  .accordion-content .counter-row {
+    margin-bottom: 6px;
+  }
+}
+/* Aplica tanto no desktop quanto no mobile */
+.accordion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* espaçamento uniforme entre todos os itens */
+}
+
+.accordion-content .field,
+.accordion-content .checkbox-row,
+.accordion-content .counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px; /* espaçamento interno entre label e select/checkbox */
+}
+
+/* Remove margem extra do Blindagem no wrapper, mas mantém a separação antes dos combos Full Tuning */
+.accordion-content #blindagem {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   TRANSIÇÃO GLOBAL DE TEMA (SUAVE + DINÂMICA)
+   ========================================================= */
+body,
+.top-bar,
+.bot-bar,
+.box,
+select,
+.counter-controls button {
+  transition:
+    background-color 0.9s ease,
+    background 0.9s ease,
+    color 0.9s ease,
+    box-shadow 0.9s ease,
+    border-color 0.9s ease,
+    backdrop-filter 0.9s ease;
+}
+/* =========================================================
+   GLASS EFFECT - GRID / BOX
+   ========================================================= */
+.box {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.theme-light .box {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+/* =========================================================
+   FONTE MECÂNICA PARA TÍTULOS
+   ========================================================= */
+/*h2.servicos-header,
+h2.vendas-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+*/
+h2.servicos-header,
+h2.vendas-header {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   BOT BAR FIXA (ANÚNCIO)
+   ========================================================= */
+.bot-bar {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 998;
+  background: linear-gradient(180deg, #14100a, #1f1a12);
+  box-shadow: 0 -4px 12px rgba(255,159,67,0.25);
+}
+
+.bot-bar-inner {
+  padding: 10px 16px;
+  overflow: hidden;
+}
+
+/* Animação de texto */
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+  color: #ff9f43;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255,159,67,0.6);
+}
+
+/* ================= TEMA CLARO - Bot Bar ================= */
+body.theme-light .bot-bar {
+  background: linear-gradient(180deg, #f0e7d9, #fdf9f3);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+}
+
+body.theme-light .marquee span {
+  color: #ff9f43;
+  text-shadow: 0 0 6px rgba(255,159,67,0.6);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* ================= TEMA NEON - Bot Bar ================= */
+body.theme-neon .bot-bar {
+  background: linear-gradient(180deg, #2c003e, #6200ea);
+  box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
+  
+}
+
+body.theme-neon .marquee span {
+  color: #ffffff; /* Ciano neon */
+  text-shadow: 0 0 8px rgba(198, 25, 123, 0.8); /* Brilho no texto */
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+/* Evita que a botbar cubra o conteúdo 
+main.container {
+  padding-bottom: 70px;
+}*/
+/* Glow mais refinado no escuro */
+body:not(.theme-light) .box {
+  box-shadow:
+    0 0 14px rgba(255,159,67,0.18),
+    inset 0 0 20px rgba(255,255,255,0.03);
+}
+
+/* Claro mais limpo e premium */
+body.theme-light .box {
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08),
+    inset 0 0 12px rgba(255,255,255,0.6);
+}
+/* =========================================================
+   GLASS EFFECT REAL (CORRIGIDO)
+   ========================================================= */
+.box {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Camada de vidro */
+.box::before {
+  content: "";
+  position: relative;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  pointer-events: none;
+}
+
+/* Tema claro */
+body.theme-light .box::before {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Ícone de parceria (Vendas) – MAIS PERCEPTÍVEL */
+.vendas-checkbox-label i {
+  font-size: 24px;              /* tamanho maior */
+  color: #ff9f43;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+/* Esconder somente o checkbox, mantendo a label visível */
+#vendasSwitch {
+  opacity: 0; /* Tornar o checkbox invisível */
+  position: absolute; /* Remover o checkbox do layout */
+}
+
+/* Se você quiser, pode até esconder o próprio <label> */
+.vendas-checkbox-label {
+  display: inline-block;
+  cursor: pointer; /* Para garantir que a label seja clicável */
+}
+
+/* Hover */
+.vendas-checkbox-label:hover i {
+  transform: scale(1.15);
+}
+
+/* Quando checkbox estiver ativo */
+.vendas-checkbox-label input:checked + i {
+  color: #66ffcc;
+  text-shadow: 0 0 8px rgba(102,255,204,0.8);
+}
+
+/* Tema claro */
+body.theme-light .vendas-checkbox-label i {
+  color: #c96c1a;
+}
+
+body.theme-light .vendas-checkbox-label input:checked + i {
+  color: #1fa37a;
+  text-shadow: none;
+}
+
+/* ============================================= */
+/*                   TEMA NEON                   */
+/* ============================================= */
+body.theme-neon {
+  background: #42041e; /* Fundo escuro roxo */
+  color: #ffffff; /* Texto claro */
+  font-family: 'Orbitron', sans-serif; /* Fonte futurista */
+}
+
+body.theme-neon .top-bar {
+  background: linear-gradient(180deg, #2c003e, #6200ea);
+  box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
+}
+
+body.theme-neon .total-box {
+  color: #00ff00; /* Verde neon */
+}
+
+body.theme-neon .reset-btn,
+body.theme-neon .theme-toggle-btn {
+  color: #ffeb3b; /* Amarelo neon */
+  border-color: #ffeb3b;
+}
+
+body.theme-neon .box {
+  background: #2e0620;
+  box-shadow: 0 6px 18px rgba(0, 255, 255, 0.15);
+  border-radius: 12px;
+}
+
+body.theme-neon .price {
+  color: #00ff3c; /* Verde neon */
+}
+
+body.theme-neon .counter-controls button {
+  background: #d000ff;
+  color: #fff;
+}
+
+body.theme-neon .counter-controls button:hover {
+  background: #ca00e5;
+}
+
+/* =================== TEMA NEON - Animações de Carnaval =================== */
+
+/* Confetes */
+@keyframes confetes {
+  0% { top: -10%; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.confetes {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  animation: confetes 3s linear infinite;
+  pointer-events: none;
+  animation-delay: calc(0.5s * var(--i));
+}
+
+/* Animação para os pedaços coloridos */
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.pedaço-colorido {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffeb3b; /* Cor padrão */
+  animation: explode 0.5s forwards;
+  pointer-events: none; /* Para que o clique não seja bloqueado */
+}
+
+
+/* =========================================================
+   FIM DO ARQUIVO CSS
+   ========================================================= */
